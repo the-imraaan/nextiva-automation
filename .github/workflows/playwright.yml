@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.EMAIL }}
           password: ${{ secrets.PASSWORD }}
           from: imran7hossan@gmail.com  # Use the sender email from GitHub Secrets
-          to: ${{ secrets.SLACK_EMAIL }}  # The recipient email address
+          to: automation-alert-aaaao3ekiyxcm5were4cdmvkme@rtcamp.slack.com  # The recipient email address
           subject: "Automation Test Report - Playwright"
           body: |
             Hi Team,
