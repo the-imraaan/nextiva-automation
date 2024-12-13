@@ -1,7 +1,7 @@
 name: Automation Tests for production site
 
 on:
-  pull_request:
+  push:
     branches:
       - main
   schedule:
