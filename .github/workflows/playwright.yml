@@ -40,7 +40,7 @@ jobs:
         id: playwright
         run: | 
           npx playwright test || echo "Tests failed" > failed.txt
-        continue-on-error: true 
+
 
       - name: Send Report to Slack
         if: ${{ failure() && steps.playwright.outcome == 'failure' }} # Only send email if the tests fail
