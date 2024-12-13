@@ -50,8 +50,8 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL }}
           password: ${{ secrets.PASSWORD }}
-          from: ${{ secrets.EMAIL }}
-          to: ${{ secrets.SLACK_EMAIL }}
+          from: ${{ secrets.EMAIL }}  # Use the sender email from GitHub Secrets
+          to: ${{ secrets.SLACK_EMAIL }}  # The recipient email address
           subject: "Automation Test Report - Playwright"
           body: |
             Hi Team,
