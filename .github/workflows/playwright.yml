@@ -40,7 +40,6 @@ jobs:
         id: playwright
         run: |
           npx playwright test --reporter=html --output=playwright-report
-        continue-on-error: true
 
       # Send Report via Email (for both pass and fail)
       - name: Send Report via Email
@@ -55,9 +54,9 @@ jobs:
           subject: "Automation Test Report - Playwright"
           body: |
             Hi Team,
-            
+
             The automation tests for the production site have completed. 
             Please check the attached report for details.
           attachments: |
-            playwright-report/index.html # Attach the HTML report
+                 ${{ github.workspace }}/playwright-report/index.html
       
