@@ -39,7 +39,7 @@ jobs:
       - name: Run Playwright Tests
         id: playwright
         run: |
-          npm run test-e2e:playwright --reporter=html --output=playwright-report
+          npx playwright test --reporter=html --output=playwright-report
 
       # Send Report via Email ( if fail)
       - name: Send Report via Email
