@@ -16,32 +16,34 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Read Node.js version from .nvmrc
+           # Read Node.js version from .nvmrc
       - name: Read .nvmrc
         id: nvm
-        run: echo "::set-output name=NODE_VERSION::$(cat .nvmrc)"
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
 
       # Use Node.js version from .nvmrc
-      - name: Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
 
       # Install dependencies
       - name: Install Dependencies
         run: npm install
       
       - name: install playwright
-        run: npx playwright install
+        run: npx playwright install-deps
 
       # Run Playwright Tests
       - name: Run Playwright Tests
         id: playwright
-        run: |
+        run: | 
           npx playwright test || echo "Tests failed" > failed.txt
+        continue-on-error: true 
 
       - name: Send Report to Slack
-        if: failure()
+        if: ${{ failure() && steps.playwright.outcome == 'failure' }} # Only send email if the tests fail
         uses: dawidd6/action-send-mail@v3
         with: 
           server_address: smtp.gmail.com # Replace with your SMTP server
