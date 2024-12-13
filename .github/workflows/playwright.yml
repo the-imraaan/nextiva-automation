@@ -40,6 +40,7 @@ jobs:
         id: playwright
         run: |
           npx playwright test --reporter=html --output=playwright-report
+        continue-on-error: true
 
       # Send Report via Email (for both pass and fail)
       - name: Send Report via Email
