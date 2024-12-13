@@ -38,25 +38,25 @@ jobs:
       # Run Playwright Tests
       - name: Run Playwright Tests
         id: playwright
-        run: | 
-          npx playwright test || echo "Tests failed" > failed.txt
+        run: |
+          npx playwright test --reporter=html --output=playwright-report
 
-
-      - name: Send Report to Slack
-        if: ${{ failure() && steps.playwright.outcome == 'failure' }} # Only send email if the tests fail
+      # Send Report via Email (for both pass and fail)
+      - name: Send Report via Email
         uses: dawidd6/action-send-mail@v3
         with: 
-          server_address: smtp.gmail.com # Replace with your SMTP server
-          server_port: 587 # Use the appropriate port
-          username: ${{ secrets.EMAIL }} # Replace with your SMTP username
-          password: ${{ secrets.PASSWORD }} # Store the password in GitHub Secrets
-          from: ${{ secrets.EMAIL }} # Sender email address
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL }}
+          password: ${{ secrets.PASSWORD }}
+          from: ${{ secrets.EMAIL }}
           to: ${{ secrets.SLACK_EMAIL }}
-          subject: "Automation Test Report - Failed"
+          subject: "Automation Test Report - Playwright"
           body: |
             Hi Team,
-            
-            The automation tests for the production site failed. 
+          
+            The automation tests for the production site have completed. 
             Please check the attached report for details.
-          attachments: failed.txt
+          attachments: |
+            playwright-report/index.html # Attach the HTML report
       
