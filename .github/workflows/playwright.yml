@@ -1,0 +1,60 @@
+name: Automation Tests for production site
+
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "*/59 * * * *" # Runs every hour
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Read Node.js version from .nvmrc
+      - name: Read .nvmrc
+        id: nvm
+        run: echo "::set-output name=NODE_VERSION::$(cat .nvmrc)"
+
+      # Use Node.js version from .nvmrc
+      - name: Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+      
+      - name: install playwright
+        run: npx playwright install
+
+      # Run Playwright Tests
+      - name: Run Playwright Tests
+        id: playwright
+        run: |
+          npx playwright test || echo "Tests failed" > failed.txt
+
+      - name: Send Report to Slack
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with: 
+          server_address: smtp.gmail.com # Replace with your SMTP server
+          server_port: 587 # Use the appropriate port
+          username: ${{ secrets.EMAIL }} # Replace with your SMTP username
+          password: ${{ secrets.PASSWORD }} # Store the password in GitHub Secrets
+          from: ${{ secrets.EMAIL }} # Sender email address
+          to: ${{ secrets.SLACK_EMAIL }}
+          subject: "Automation Test Report - Failed"
+          body: |
+            Hi Team,
+            
+            The automation tests for the production site failed. 
+            Please check the attached report for details.
+          attachments: failed.txt
+      
