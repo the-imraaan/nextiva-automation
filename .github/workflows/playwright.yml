@@ -44,7 +44,7 @@ jobs:
 
       # Send Report via Email ( if fail)
       - name: Send Report via Email
-        if: ${{ failure() }}
+        if: ${{ steps.playwright.outcome == 'failure' }}
         uses: dawidd6/action-send-mail@v3
         with: 
           server_address: smtp.gmail.com
