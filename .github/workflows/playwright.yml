@@ -42,8 +42,9 @@ jobs:
           npx playwright test --reporter=html --output=playwright-report
         continue-on-error: true
 
-      # Send Report via Email (for both pass and fail)
+      # Send Report via Email ( if fail)
       - name: Send Report via Email
+        if: ${{ failure() }}
         uses: dawidd6/action-send-mail@v3
         with: 
           server_address: smtp.gmail.com
