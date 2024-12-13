@@ -50,12 +50,12 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL }}
           password: ${{ secrets.PASSWORD }}
-          from: imran7hossan@gmail.com  # Use the sender email from GitHub Secrets
-          to: automation-alert-aaaao3ekiyxcm5were4cdmvkme@rtcamp.slack.com  # The recipient email address
+          from: no-replay@gmail.com  # Use the sender email from GitHub Secrets
+          to: ${{ secrets.SLACK_EMAIL }}  # The recipient email address
           subject: "Automation Test Report - Playwright"
           body: |
             Hi Team,
-          
+            
             The automation tests for the production site have completed. 
             Please check the attached report for details.
           attachments: |
