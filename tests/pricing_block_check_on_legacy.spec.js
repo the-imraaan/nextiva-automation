@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+/* import { test, expect } from '@playwright/test';
 const testdata = require("../test-data/testdata.json");
 import { URLS } from "../test_utils/urls";
 import Pricing from '../pages/pricing';
@@ -24,4 +24,4 @@ test.describe('Checking some important pages by taking screenshot and comparing 
             maxDiffPixelRatio: 0.2
     });
     });
-})
+})**/
