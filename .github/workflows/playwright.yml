@@ -39,8 +39,7 @@ jobs:
       - name: Run Playwright Tests
         id: playwright
         run: |
-          npx playwright test --reporter=html --output=playwright-report
-        continue-on-error: true
+          npm run test-e2e:playwright --reporter=html --output=playwright-report
 
       # Send Report via Email ( if fail)
       - name: Send Report via Email
@@ -59,7 +58,7 @@ jobs:
 
             The automation tests for the production site have completed. 
             Please check the attached report for details.
-            
+
             $(cat playwright-report/index.html)
           attachments: |
                  ${{ github.workspace }}/playwright-report/index.html
