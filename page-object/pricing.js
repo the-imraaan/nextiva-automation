@@ -11,4 +11,3 @@ export const get_price_first_Cart = '//div[@class="enterprise-card__pricing-cta_
 export const smb_pricing_unit = "//span[@class='font-size-0x' and text()='/user/mo']"
 export const smb_annual_discount = "//span[@class='pricing__discount-value font-size-0x']"
 export const smb_annual_toggle = "//div[@class='pricing__payment-toggle']"
-export const legacy_pricing_table = '//div[contains(@class, "pricing-section")]'
