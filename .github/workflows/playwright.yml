@@ -58,9 +58,8 @@ jobs:
             Hi Team,
 
             The automation tests for the production site have completed. 
-            Please check the attached report for details.
+            Some test cases are failed, Please check the attached report for details.
             
-            $(cat playwright-report/index.html)
           attachments: |
                  ${{ github.workspace }}/playwright-report/index.html
       
