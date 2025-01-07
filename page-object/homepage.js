@@ -10,6 +10,6 @@ export const submit = '.nextiva-ct-button'
 export const banner = '.announcement-banner'
 export const menu = '.main-navigation'
 export const getStartedButton = '#cta-popup'
-export const footer = "//button[@class='nextiva-footer-download']"
+export const footer = "//div[@class='nextiva-footer-download']"
 export const sales = "//li[@class='support-link-item']/a[small[text()='Sales']]/span"
 export const support = "//li[@class='support-link-item']/a[small[text()='Support']]/span"
