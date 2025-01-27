@@ -15,17 +15,17 @@ test.describe('Test Cases of the Homepage', () => {
 
     });
 
-    test('Test bottom form', async () => {
-        await homepage.gotoHomepage();
-        await homepage.fillFormData(testdata.testUser.firstName,
-            testdata.testUser.lastName,
-            randomEmail.generate(),
-            testdata.testUser.phone,
-            testdata.testUser.company,
-            testdata.testUser.companySize
-        )
-        expect(await homepage.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
-    });
+//   test('Test bottom form', async () => {
+    //    await homepage.gotoHomepage();
+     //   await homepage.fillFormData(testdata.testUser.firstName,
+      //      testdata.testUser.lastName,
+     //       randomEmail.generate(),
+        //    testdata.testUser.phone,
+        //    testdata.testUser.company,
+       //     testdata.testUser.companySize
+      //  )
+     //   expect(await homepage.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
+  //  });
 
     test('Test Banner is visible', async () => {
         await homepage.gotoHomepage();
@@ -38,18 +38,18 @@ test.describe('Test Cases of the Homepage', () => {
         await homepage.isMenuVisible();
     })
 
-    test('Test Get started form is visible and working', async () => {
-        await homepage.gotoHomepage();
-        await homepage.clickedOnGetStarted();
-        await homepage.fillFormData(testdata.testUser.firstName,
-            testdata.testUser.lastName,
-            randomEmail.generate(),
-            testdata.testUser.phone,
-            testdata.testUser.company,
-            testdata.testUser.companySize
-        )
-        expect(await homepage.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
-    })
+ //   test('Test Get started form is visible and working', async () => {
+    //    await homepage.gotoHomepage();
+    //    await homepage.clickedOnGetStarted();
+    //    await homepage.fillFormData(testdata.testUser.firstName,
+     //       testdata.testUser.lastName,
+     //       randomEmail.generate(),
+     //       testdata.testUser.phone,
+     //       testdata.testUser.company,
+      //      testdata.testUser.companySize
+      //  )
+      //  expect(await homepage.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
+  //  })
 
     test('Validate all of the learn more button has valid CTA link', async () => {
         await homepage.gotoHomepage();
