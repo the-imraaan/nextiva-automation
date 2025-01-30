@@ -10,7 +10,7 @@
         "company" : "test",
         "companySize" : "22"
     },
-    "LearMoreCTALinks": "https://get.nextiva.com/nextiva-cares-los-angeles-wildfires,https://www.nextiva.com/products/customer-experience,https://www.nextiva.com/products/customer-journey,https://www.nextiva.com/solutions/enterprise-contact-center,https://www.nextiva.com/products/customer-analytics,https://www.nextiva.com/products/ai-automation,https://www.nextiva.com/solutions/workforce-engagement,https://www.nextiva.com/resources/learn,https://www.nextiva.com/products/ai-automation,https://www.nextiva.com/#cta-popup",
+    "LearMoreCTALinks": "https://www.nextiva.com/products/customer-experience,https://www.nextiva.com/products/customer-journey,https://www.nextiva.com/solutions/enterprise-contact-center,https://www.nextiva.com/products/customer-analytics,https://www.nextiva.com/products/ai-automation,https://www.nextiva.com/solutions/workforce-engagement,https://www.nextiva.com/resources/learn,https://www.nextiva.com/products/ai-automation,https://www.nextiva.com/#cta-popup",
     "Currency" : {
         "USD" : "$",
         "CAD" : "C$",
