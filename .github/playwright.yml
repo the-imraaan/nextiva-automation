@@ -1,0 +1,67 @@
+name: Automation Tests for production site
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *" # Runs every hour
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+           # Read Node.js version from .nvmrc
+      - name: Read .nvmrc
+        id: nvm
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      # Use Node.js version from .nvmrc
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+      
+      - name: install playwright
+        run: npx playwright install
+
+      # Run Playwright Tests
+      - name: Run Playwright Tests
+        id: playwright
+        env:
+          AUTH_HEADER: ${{ secrets.HS_TOKEN }}
+        run: |
+          npx playwright test --reporter=html --output=playwright-report
+        continue-on-error: true
+
+      # Send Report via Email ( if fail)
+      - name: Send Report via Email
+        if: ${{ steps.playwright.outcome == 'failure' }}
+        uses: dawidd6/action-send-mail@v3
+        with: 
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL }}
+          password: ${{ secrets.PASSWORD }}
+          from: no-replay@gmail.com  # Use the sender email from GitHub Secrets
+          to: ${{ secrets.SLACK_EMAIL }}  # The recipient email address
+          subject: "Automation Test Report - Playwright"
+          body: |
+            Hi Team,
+
+            The automation tests for the production site have completed. 
+            Some test cases are failed, Please check the attached report for details.
+            
+          attachments: |
+                 ${{ github.workspace }}/playwright-report/index.html
+    

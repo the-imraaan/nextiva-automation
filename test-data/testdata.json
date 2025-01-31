@@ -1,0 +1,10 @@
+{
+    "testUser" : {
+        "firstName" : "Jhon",
+        "lastName" : "Doe",
+        "phone" : "(555)555-5555",
+        "company" : "test",
+        "companySize" : "22",
+        "interestedProduct" : "Other"
+    }
+}
