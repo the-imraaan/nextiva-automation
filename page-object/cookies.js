@@ -1,0 +1,1 @@
+export const acceptCookies = "//button[@id='onetrust-accept-btn-handler']"

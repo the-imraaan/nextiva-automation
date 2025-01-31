@@ -11,7 +11,6 @@ export default defineConfig({
   expect: {
     timeout: 20000,
   },
-  retries: 2,  
   use: {
     headless: true,
     viewport: { width: 1728, height: 1020 },
@@ -22,7 +21,6 @@ export default defineConfig({
       args: ['--disable-cache'],
     },
   },
-
   projects: [
     {
       name: 'chromium',

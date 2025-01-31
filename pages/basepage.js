@@ -106,14 +106,12 @@ class BasePage {
 		return expect(element).toBeHidden
 	}
 
-	async isElementEnabled(selector, errorMessage) {
-		await this.page.waitForSelector(selector);
-		const element = this.page.locator(selector)
+	async isElementNotVisible(selector) {
 		try {
-			const isEnabled = await element.isEnabled()
-			expect(isEnabled).toBeTruthy()
+			await this.page.waitForSelector(selector, { state: 'hidden', timeout: 5000 });
+			return true;
 		} catch (error) {
-			throw new Error(`${errorMessage}`)
+			return false;
 		}
 	}
 
