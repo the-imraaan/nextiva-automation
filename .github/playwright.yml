@@ -3,7 +3,7 @@ name: Automation Tests for production site
 on:
   push:
     branches:
-      - main
+      - hs_automation 
   schedule:
     - cron: "0 0 * * *" # Runs every hour
 
