@@ -1,9 +1,9 @@
-name: Automation Tests for production site
+name: Automation Tests for hubspot form
 
 on:
   push:
     branches:
-      - hs_automation 
+      - hs_automation
   schedule:
     - cron: "0 0 * * *" # Runs every hour
 
@@ -55,13 +55,12 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           from: no-replay@gmail.com  # Use the sender email from GitHub Secrets
           to: ${{ secrets.SLACK_EMAIL }}  # The recipient email address
-          subject: "Automation Test Report - Playwright"
+          subject: "Hubspot Automation Test Failed"
           body: |
             Hi Team,
 
-            The automation tests for the production site have completed. 
+            Automation test for hubspot form is failed. Please check the attached report for details.
             Some test cases are failed, Please check the attached report for details.
             
           attachments: |
                  ${{ github.workspace }}/playwright-report/index.html
-    
