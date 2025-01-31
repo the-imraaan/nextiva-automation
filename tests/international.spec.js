@@ -60,4 +60,8 @@ test.describe('Validating international sites', () => {
 
     });
 
+    test.afterAll(async () => {
+        await page.close();
+    });
+
 })

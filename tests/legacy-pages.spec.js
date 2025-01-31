@@ -47,4 +47,8 @@ test.describe('Checking some important pages by taking screenshot and comparing 
         expect(await homepage.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
 
     });
+
+    test.afterAll(async () => {
+        await page.close();
+    });
 })
