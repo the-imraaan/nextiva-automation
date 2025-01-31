@@ -27,7 +27,7 @@ test.describe('Test Cases of the Homepage', () => {
         await homepage.gotoHomepage();
         expect(await homepage.getAlllearnMoreLink()).toContain(testdata.LearMoreCTALinks.toString());
     })
-    
+
     test('Validate footer', async () => {
         await homepage.gotoHomepage();
         await homepage.isFooterVisible();

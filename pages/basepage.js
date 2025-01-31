@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test'
-import { SlowBuffer } from 'buffer';
+
 class BasePage {
 	constructor(page) {
 		this.page = page
@@ -12,14 +12,9 @@ class BasePage {
 	async getTitle() {
 		return await this.page.title()
 	}
-	
-	async getInnerText(selector){
-		await this.page.waitForSelector(selector);
-		return await this.page.locator(selector).innerText();
-	}
 
-	async pause() {
-		return await this.page.pause()
+	async getInnerText(selector) {
+		return await this.page.locator(selector).innerText();
 	}
 
 	async getUrl() {
@@ -72,7 +67,7 @@ class BasePage {
 			return lastItem
 		}
 	}
- 
+
 	async clickAllLinksInNewTabs(selector) {
 		await this.page.waitForSelector(selector);
 		const rows = this.page.locator(selector)
@@ -101,12 +96,6 @@ class BasePage {
 	}
 
 	async isElementNotVisible(selector) {
-		await this.page.waitForSelector(selector);
-		const element = this.page.locator(selector)
-		return expect(element).toBeHidden
-	}
-
-	async isElementNotVisible(selector) {
 		try {
 			await this.page.waitForSelector(selector, { state: 'hidden', timeout: 5000 });
 			return true;
@@ -115,9 +104,9 @@ class BasePage {
 		}
 	}
 
-	async getAttribute(selector, attributeName){
+	async getAttribute(selector, attributeName) {
 		await this.page.waitForSelector(selector);
-		return await this.page.getAttribute(selector, attributeName);
+		return await this.page.locator(selector).getAttribute(attributeName);
 	}
 
 

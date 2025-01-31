@@ -1,22 +1,22 @@
 import BasePage from "./basepage";
-import { URLS } from "../test_utils/urls";
 import {
-    acceptCookies
+    acceptCookies,
+    rejectCookies
 } from "../page-object/cookies";
 
-class Cookies extends BasePage{
-    constructor(page){
+class Cookies extends BasePage {
+    constructor(page) {
         super(page)
     }
-    
-    async acceptCookies(){
+
+    async acceptCookies() {
         await this.waitAndClick(acceptCookies);
     }
-    async isCookieBannerNotVisible(){
+    async isCookieBannerNotVisible() {
         return await this.isElementNotVisible(acceptCookies);
     }
-
-
-
-
-}export default Cookies;
+    async rejectCookies() {
+        await this.waitAndClick(rejectCookies);
+    }
+}
+export default Cookies;

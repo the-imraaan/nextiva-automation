@@ -15,7 +15,7 @@ test.describe('Validating international sites', () => {
 
     });
 
-    test('Validate buttom form CA site', async() => {
+    test('Validate buttom form CA site', async () => {
         await international.goto(URLS.homepage_ca)
         await international.fillFormData(testdata.testUser.firstName,
             testdata.testUser.lastName,
@@ -28,7 +28,7 @@ test.describe('Validating international sites', () => {
 
     });
 
-    test('Validate buttom form ES site', async() => {
+    test('Validate buttom form ES site', async () => {
         await international.goto(URLS.homepage_es)
         await international.fillFormData(testdata.testUser.firstName,
             testdata.testUser.lastName,
@@ -41,7 +41,7 @@ test.describe('Validating international sites', () => {
 
     });
 
-    test('Validate buttom form UK site', async() => {
+    test('Validate buttom form UK site', async () => {
         await international.goto(URLS.homepage_uk)
         await international.fillFormData(testdata.testUser.firstName,
             testdata.testUser.lastName,
@@ -53,7 +53,7 @@ test.describe('Validating international sites', () => {
         expect(await international.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
     });
 
-    test('Validate header is visible on all site', async() => {
+    test('Validate header is visible on all site', async () => {
         await international.goto(URLS.homepage_ca)
         await international.isHeaderLogoVisible()
         expect(await international.getHeaderLogoLink()).toBe(URLS.homepage_ca)

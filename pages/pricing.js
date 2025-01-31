@@ -1,6 +1,6 @@
 import BasePage from "./basepage";
 import { URLS } from "../test_utils/urls";
-import{
+import {
     ent_concurrent_pricing_units,
     ent_monthly_pricing_units,
     ent_user_based_pricing_units,
@@ -18,80 +18,79 @@ import{
 
 } from '../page-object/pricing'
 
-
-class Pricing extends BasePage{
-    constructor(page){
+class Pricing extends BasePage {
+    constructor(page) {
         super(page)
     }
-    async gotoToPage(url){
+    async gotoToPage(url) {
         await this.open(url)
         await this.waitForPageLoad();
     }
-    async gotoEnterprisePage(){
+    async gotoEnterprisePage() {
         await this.open(URLS.homepage + URLS.ent_pricing);
         await this.waitForPageLoad();
     }
-    async gotoSMBPage(){
+    async gotoSMBPage() {
         await this.open(URLS.homepage + URLS.smb_pricing);
         await this.waitForPageLoad();
     }
-    async clickedOnUsagesBased(){
+    async clickedOnUsagesBased() {
         await this.waitAndClick(ent_user_based_tab);
     }
-    async clickedOnConcurrent(){
+    async clickedOnConcurrent() {
         await this.waitAndClick(ent_concurrent_tab);
     }
 
-    async isFirstTabHasValidPricingUnit(){
+    async isFirstTabHasValidPricingUnit() {
         const elements = await this.page.$$(ent_monthly_pricing_units);
         return elements.length === 3;
     }
 
-    async isSecondtabHasValidPricingUnit(){
+    async isSecondtabHasValidPricingUnit() {
         const elements = await this.page.$$(ent_user_based_pricing_units);
         return elements.length === 3;
     }
 
-    async isthirdtabHasValidPricingUnit(){
+    async isthirdtabHasValidPricingUnit() {
         const elements = await this.page.$$(ent_concurrent_pricing_units);
         return elements.length === 3;
     }
 
-    async clickOnCurrencyDropdown(){
+    async clickOnCurrencyDropdown() {
         await this.waitAndClick(currency_dropdown)
     }
 
-    async selectCad(){
+    async selectCad() {
         await this.waitAndClick(select_cad)
     }
 
-    async selectEURO(){
+    async selectEURO() {
         await this.waitAndClick(select_eur)
     }
 
-    async selectGBP(){
+    async selectGBP() {
         await this.waitAndClick(select_gbp)
     }
 
-    async getPriceFromTheFirstCart(){
-    const text = await this.page.locator(get_price_first_Cart).first().innerText();
-    return text;
+    async getPriceFromTheFirstCart() {
+        const text = await this.page.locator(get_price_first_Cart).first().innerText();
+        return text;
     }
 
-    async getSMBPricingUnits(){
+    async getSMBPricingUnits() {
         const text = await this.page.locator(smb_pricing_unit).first().innerText();
         return text;
     }
-    async isSavingVisible(){
-        return await this.page.locator(smb_annual_discount).first().isVisible(); 
+    async isSavingVisible() {
+        return await this.page.locator(smb_annual_discount).first().isVisible();
     }
 
-    async switchMonthly(){
+    async switchMonthly() {
         await this.waitAndClick(smb_annual_toggle)
     }
 
-    async getScreenShot(){
+    async getScreenShot() {
         return await this.returnScreenShot(legacy_pricing_table);
     }
 
-}export default Pricing;
+} export default Pricing;

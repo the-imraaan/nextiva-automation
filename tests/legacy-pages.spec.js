@@ -5,7 +5,7 @@ import Homepage from '../pages/homepage';
 import LegacyPage from '../pages/legacyPage';
 import RandomEmailGenerator from '../test_utils/RandomEmail';
 
-test.describe('Checking some important pages by taking screenshot and comparing to the pretake Screenshot', () =>{
+test.describe('Checking some important pages by taking screenshot and comparing to the pretake Screenshot', () => {
     let page;
     let legacyPage;
     let homepage;
@@ -20,7 +20,7 @@ test.describe('Checking some important pages by taking screenshot and comparing 
     test('validate x20/dir-01 page working as expected', async () => {
 
         await legacyPage.goto(URLS.homepage + URLS.dir_01)
-        expect(await legacyPage.isPricingTableVisible).toBeTruthy();       
+        expect(await legacyPage.isPricingTableVisible).toBeTruthy();
 
     });
 
@@ -45,6 +45,6 @@ test.describe('Checking some important pages by taking screenshot and comparing 
             testdata.testUser.companySize
         )
         expect(await homepage.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
-        
+
     });
 })

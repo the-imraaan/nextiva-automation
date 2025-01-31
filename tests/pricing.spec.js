@@ -14,7 +14,7 @@ test.describe('Test cases of the pricing table', () => {
 
     test('Validate Enterprise pricing table has valid pricing unit', async () => {
         await pricing.gotoEnterprisePage()
-        
+
         expect(await pricing.isFirstTabHasValidPricingUnit()).toBeTruthy();
 
         await pricing.clickedOnUsagesBased();
@@ -49,7 +49,7 @@ test.describe('Test cases of the pricing table', () => {
         await pricing.switchMonthly();
         expect(await pricing.isSavingVisible()).toBeFalsy();
     })
-    
+
     test.afterAll(async () => {
         await page.close();
     });

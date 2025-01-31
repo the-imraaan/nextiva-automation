@@ -1,25 +1,25 @@
 import BasePage from "./basepage";
-import{
+import {
     pricing_table,
     getStartedButton
 
 } from "../page-object/legacyPage"
 
-class LegacyPage extends BasePage{
-    constructor(page){
+class LegacyPage extends BasePage {
+    constructor(page) {
         super(page)
     }
 
-    async goto(url){
+    async goto(url) {
         await this.open(url)
     }
 
-    async clickedOnGetStarted(){
-            await this.isElementClickable(getStartedButton);
-            await this.waitAndClick(getStartedButton)
-        }
+    async clickedOnGetStarted() {
+        await this.isElementClickable(getStartedButton);
+        await this.waitAndClick(getStartedButton)
+    }
 
-    async isPricingTableVisible(){
+    async isPricingTableVisible() {
         return await this.isElementVisible(pricing_table);
     }
 

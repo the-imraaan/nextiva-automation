@@ -16,19 +16,20 @@ import {
     footer,
     support,
     sales
-    
+
 } from "../page-object/homepage";
-class Homepage extends BasePage{
-    constructor(page){
+
+class Homepage extends BasePage {
+    constructor(page) {
         super(page)
     }
-    async gotoHomepage(){
+    async gotoHomepage() {
         await this.open(URLS.homepage)
         await this.waitForPageLoad();
     }
 
-    async fillFormData(first_name, last_name, email_addess, phone_number, company_name, company_size ){
-        await this.waitAndFill(firstName , first_name);
+    async fillFormData(first_name, last_name, email_addess, phone_number, company_name, company_size) {
+        await this.waitAndFill(firstName, first_name);
         await this.waitAndFill(lastName, last_name);
         await this.waitAndFill(emailAddress, email_addess);
         await this.waitAndFill(phone, phone_number);
@@ -39,39 +40,39 @@ class Homepage extends BasePage{
         await this.waitAndClick(submit);
     }
 
-    async getPageURL(){
+    async getPageURL() {
         return await this.getUrl();
     }
 
-    async isBannerVisible(){
+    async isBannerVisible() {
         await this.isElementVisible(banner);
     }
 
-    async isMenuVisible(){
-        await this.isElementVisible(menu); 
+    async isMenuVisible() {
+        await this.isElementVisible(menu);
     }
 
-    async isFooterVisible(){
+    async isFooterVisible() {
         await this.isElementVisible(footer)
     }
 
-    async clickedOnGetStarted(){
+    async clickedOnGetStarted() {
         await this.isElementClickable(getStartedButton);
     }
 
-    async getAlllearnMoreLink(){
+    async getAlllearnMoreLink() {
         const learnMoreButtons = await this.page.locator('a:has-text("Learn more")');
         const urls = await learnMoreButtons.evaluateAll(buttons => buttons.map(button => button.href));
         return urls.toString();
     }
 
-    async getSalesNumber(){
-       return await this.getInnerText(sales)
+    async getSalesNumber() {
+        return await this.getInnerText(sales)
     }
 
-    async getSupportNumber(){
+    async getSupportNumber() {
         return await this.getInnerText(support)
-     }
+    }
 
 
-}export default Homepage;
+} export default Homepage;
