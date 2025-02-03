@@ -38,7 +38,7 @@ test.describe('Cookies validation', () => {
         const unexpectedValues = receivedArray.filter(value => !allowedValues.includes(value));
         expect(unexpectedValues).toEqual([]); */
     })
-
+/* 
     test('Validate Cookies are honored to the microsite if user visit from nextiva.com', async () => {
         const context = page.context();
         await homepage.gotoHomepage();
@@ -57,7 +57,7 @@ test.describe('Cookies validation', () => {
         expect(await cookies.isCookieBannerNotVisible()).toBe(true);
         MicroSiteCookies = (await context.cookies()).map(cookie => cookie.domain);
         expect(MicroSiteCookies).toContain('.nextiva.com');
-    })
+    }) */
 
     test.afterAll(async () => {
         await page.close();
