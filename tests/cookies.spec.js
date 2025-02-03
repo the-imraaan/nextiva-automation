@@ -9,7 +9,6 @@ test.describe('Cookies validation', () => {
     let homepage;
     let cookies;
     let international;
-    let MicroSiteCookies;
 
     test.beforeAll(async ({ browser }) => {
         page = await browser.newPage();
@@ -17,6 +16,28 @@ test.describe('Cookies validation', () => {
         international = new International(page);
         cookies = new Cookies(page);
     });
+
+    test('Validate broken cookies are not set on the microsite', async () => {
+        const context = page.context();
+        let MicroSiteCookies = [];
+        await context.clearCookies();
+        MicroSiteCookies = (await context.cookies()).map(cookie => cookie.domain);
+        console.log(MicroSiteCookies);
+        await international.goto(URLS.homepage_ca)
+         MicroSiteCookies = (await context.cookies()).map(cookie => cookie.domain);
+        console.log(MicroSiteCookies);
+        await cookies.rejectCookies();
+        await page.waitForLoadState('domcontentloaded')
+        await page.reload();
+        await page.waitForLoadState('domcontentloaded')
+         MicroSiteCookies = (await context.cookies()).map(cookie => cookie.domain);
+        console.log(MicroSiteCookies);
+
+        /* const receivedArray = ['aa.com', ' BB.com', 'CC.com ']; // Example input
+        const allowedValues = ['aa.com', ' BB.com']; // Allowed values
+        const unexpectedValues = receivedArray.filter(value => !allowedValues.includes(value));
+        expect(unexpectedValues).toEqual([]); */
+    })
 
     test('Validate Cookies are honored to the microsite if user visit from nextiva.com', async () => {
         const context = page.context();
@@ -36,20 +57,6 @@ test.describe('Cookies validation', () => {
         expect(await cookies.isCookieBannerNotVisible()).toBe(true);
         MicroSiteCookies = (await context.cookies()).map(cookie => cookie.domain);
         expect(MicroSiteCookies).toContain('.nextiva.com');
-    })
-
-    test('Validate broken cookies are not set on the microsite', async () => {
-        const context = page.context();
-        await context.clearCookies();
-        await international.goto(URLS.homepage_ca)
-        await cookies.rejectCookies();
-        MicroSiteCookies = (await context.cookies()).map(cookie => cookie.domain);
-        console.log(MicroSiteCookies);
-
-        /* const receivedArray = ['aa.com', ' BB.com', 'CC.com ']; // Example input
-        const allowedValues = ['aa.com', ' BB.com']; // Allowed values
-        const unexpectedValues = receivedArray.filter(value => !allowedValues.includes(value));
-        expect(unexpectedValues).toEqual([]); */
     })
 
     test.afterAll(async () => {

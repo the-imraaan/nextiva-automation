@@ -18,7 +18,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     bypassCSP: true,
     launchOptions: {
-      args: ['--disable-cache'],
+      args: ['--disable-cache', '--test-third-party-cookie-phaseout'],
     },
   },
   projects: [
