@@ -1,0 +1,110 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://www.nextiva.com",
+      "localStorage": [
+        {
+          "name": "__cai_lu",
+          "value": "585064@c544af98f7c7ffe45e5f$6d96459e5deb6df3|1738659526711"
+        },
+        {
+          "name": "__xray_v",
+          "value": "4"
+        },
+        {
+          "name": "_uetvid_exp",
+          "value": "Sun, 01 Mar 2026 08:58:46 GMT"
+        },
+        {
+          "name": "NRBA_SESSION",
+          "value": "{\"value\":\"97d6d2018e34dd53\",\"inactiveAt\":1738661325098,\"expiresAt\":1738673925097,\"updatedAt\":1738659525174,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"serverTimeDiff\":null,\"custom\":{}}"
+        },
+        {
+          "name": "_vwo_767239_config",
+          "value": "{}"
+        },
+        {
+          "name": "cto_bundle",
+          "value": "jhzW-F9kUXlqcXdtSTF5MUQ0RkJIU2R6SjI3RE5vVkcwWkR6NWRlRkpjWTYwZXE0amh2diUyQjRTYmRXSG9vbDVEd2FLQjFaZ1MzODdyM0JxcDRaOHAlMkJIMDRIYjJqRHBFNnR1Z2pleDRXOFJ3V3JWRXo4TnhVJTJGVEk4cWQzdzlZeVQ5Ymh3Tw"
+        },
+        {
+          "name": "__xray_n",
+          "value": "1"
+        },
+        {
+          "name": "omVisitsFirst",
+          "value": "{\"path\":\"\",\"queryArgs\":{},\"timestamp\":1738659511,\"referrer\":\"\"}"
+        },
+        {
+          "name": "MobileMonkeyVisitCount",
+          "value": "1"
+        },
+        {
+          "name": "__xray_c",
+          "value": "1"
+        },
+        {
+          "name": "_uetsid",
+          "value": "37201b40e2d611ef9908f1585bc4d892|1qldyhr|2|ft5|0|1861"
+        },
+        {
+          "name": "mmuid",
+          "value": "6d96459e5deb6df3"
+        },
+        {
+          "name": "__xray_sax",
+          "value": "1"
+        },
+        {
+          "name": "omVisits",
+          "value": "[{\"path\":\"ca\",\"queryArgs\":{},\"timestamp\":1738659519,\"referrer\":\"\"},{\"path\":\"es\",\"queryArgs\":{},\"timestamp\":1738659522,\"referrer\":\"\"},{\"path\":\"uk\",\"queryArgs\":{},\"timestamp\":1738659525,\"referrer\":\"\"}]"
+        },
+        {
+          "name": "lastExternalReferrerTime",
+          "value": "1738659526840"
+        },
+        {
+          "name": "_li_duid",
+          "value": "d292676f12de--01jk82xm037t98dz4wkq5swgks"
+        },
+        {
+          "name": "_uetsid_exp",
+          "value": "Wed, 05 Feb 2025 08:58:46 GMT"
+        },
+        {
+          "name": "_workerStoreMultiple",
+          "value": "{\"https://fsrre.nextiva.com\":{\"edgeTag\":{\"consent\":{\"all\":true},\"storageId\":0}}}"
+        },
+        {
+          "name": "_uetvid",
+          "value": "372080c0e2d611efb5f707da85c608bc|1dvegiz|1738659524834|3|1|bat.bing.com/p/insights/c/q"
+        },
+        {
+          "name": "lastExternalReferrer",
+          "value": "empty"
+        },
+        {
+          "name": "frdchk",
+          "value": "ok"
+        },
+        {
+          "name": "_vwo_nls_q_767239",
+          "value": "[]"
+        },
+        {
+          "name": "vwoSn",
+          "value": "{\"cu\":\"https%3A%2F%2Fwww.nextiva.com%2F\",\"r\":\"\",\"lt\":\"1738659553\",\"v\":\"0.1.0\"}"
+        },
+        {
+          "name": "li_adsId",
+          "value": "20316f13-f909-46d6-8a73-5d166fc44a41"
+        },
+        {
+          "name": "__cai_sts",
+          "value": "1738659526704"
+        }
+      ]
+    }
+  ]
+}
