@@ -34,7 +34,7 @@ test.describe('Checking some important pages by taking screenshot and comparing 
         expect(await legacyPage.isPricingTableVisible).toBeTruthy();
     });
 
-    test('validate get started form working on legacy page', async () => {
+    /*test('validate get started form working on legacy page', async () => {
         await legacyPage.goto(URLS.homepage + URLS.cloud_pbx)
         await legacyPage.clickedOnGetStarted();
         await homepage.fillFormData(testdata.testUser.firstName,
@@ -46,7 +46,7 @@ test.describe('Checking some important pages by taking screenshot and comparing 
         )
         expect(await homepage.getPageURL()).toBe(URLS.homepage + URLS.thank_you);
 
-    });
+    });the page is rebuild to wp*/
 
     test.afterAll(async () => {
         await page.close();
